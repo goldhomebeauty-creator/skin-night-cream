@@ -1,0 +1,482 @@
+<!--
+SALEPAGE - Skin Night Cream (kem nám đêm) BA12DAYS
+Khung Jay Abraham 16 bước · Visual Warrior Plus · Giọng BA12DAYS (founder Giang)
+Tạo 2026-06-15.
+
+TRẠNG THÁI: các nút CTA cuộn xuống khối #dat-hang (đặt qua Zalo OA + hotline 088 6789 136).
+Muốn đổi sang form điền Tên/SĐT: sửa nút trong section id="dat-hang".
+Deadline countdown đã set 23h59 30/06/2026 (dòng có "// COUNTDOWN DEADLINE").
+3 feedback khách (Hoa Lê, Hồng Nhung, Mỹ Duyên) + giấy công bố Sở Y Tế: ảnh host trên GitHub repo ba12days-assets.
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Night Cream - Kem dưỡng đêm hỗ trợ mờ nám BA12DAYS</title>
+<meta name="description" content="Skin Night Cream BA12DAYS: bộ ba Tranexamic Acid, Niacinamide, Alpha Arbutin hỗ trợ làm mờ nám, sáng đều màu từ thời điểm vàng ban đêm. An toàn, không lột tẩy, không corticoid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Be Vietnam Pro', -apple-system, sans-serif; font-size: 19px; line-height: 1.6; color: #333; background: #FFFFFF; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 60px 20px; }
+  h1, h2, h3 { line-height: 1.25; }
+  img.fluid { width: 100%; border-radius: 12px; display: block; }
+  .caption { font-size: 14px; color: #888; text-align: center; margin-top: 8px; font-style: italic; }
+
+  .urgency-banner { position: sticky; top: 0; z-index: 100; background: #D32F2F; color: white; text-align: center; padding: 12px; font-size: 17px; font-weight: 700; }
+
+  .hero { text-align: center; background: linear-gradient(180deg, #FFF8E1 0%, #FFFFFF 100%); }
+  .pre-headline { font-size: 17px; color: #666; font-style: italic; margin-bottom: 16px; }
+  .headline { font-size: 42px; font-weight: 800; color: #D32F2F; margin: 16px 0; }
+  .headline em { background: #FFD700; font-style: normal; padding: 2px 10px; color: #1A1A1A; }
+  .sub-headline { font-size: 23px; color: #555; font-weight: 500; margin-top: 16px; }
+  .hero-img { max-width: 420px; margin: 28px auto 0; }
+
+  .pain-section { background: #1A1A1A; color: #FFFFFF; }
+  .pain-section h2 { color: #FFD700; font-size: 32px; margin-bottom: 24px; text-align: center; }
+  .pain-section p { margin-bottom: 20px; font-size: 19px; }
+
+  .solution { background: #FFFFFF; text-align: center; }
+  .solution h2 { font-size: 26px; color: #555; margin-bottom: 8px; font-weight: 500; }
+  .solution .product-name { font-size: 40px; font-weight: 800; color: #D32F2F; margin: 8px 0 16px; }
+
+  .story h2 { font-size: 28px; color: #1A1A1A; margin-bottom: 24px; text-align: center; }
+  .story p { margin-bottom: 20px; }
+  .story blockquote { border-left: 4px solid #FFC107; padding: 12px 24px; background: #FFF8E1; font-style: italic; margin: 24px 0; font-size: 21px; color: #1A1A1A; }
+
+  .mechanism { background: #F5F5F5; }
+  .mechanism h2 { font-size: 30px; text-align: center; margin-bottom: 24px; }
+  .mechanism ul { list-style: none; margin: 20px 0; }
+  .mechanism li { padding: 12px 0 12px 34px; position: relative; }
+  .mechanism li::before { content: "🌙"; position: absolute; left: 0; top: 10px; }
+  .mechanism b { color: #D32F2F; }
+
+  .proof h2 { font-size: 30px; text-align: center; margin-bottom: 32px; }
+  .fb-card { background: #FFF8E1; border-left: 6px solid #FFC107; border-radius: 10px; padding: 16px; margin: 0 0 24px; }
+  .fb-card img { border-radius: 8px; margin-bottom: 14px; }
+  .fb-card h4 { color: #D32F2F; font-size: 19px; margin-bottom: 8px; }
+  .fb-card blockquote { font-style: italic; color: #1A1A1A; font-size: 19px; border: none; margin: 0 0 8px; }
+  .fb-card .caption { text-align: left; margin-top: 4px; }
+  .testimonial { background: #FFF8E1; border-left: 6px solid #FFC107; padding: 24px; margin: 16px 0; display: flex; gap: 20px; }
+  .testimonial-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: #E8DCC0; }
+  .testimonial h4 { color: #D32F2F; font-size: 18px; margin-bottom: 8px; }
+  .testimonial .result { font-size: 16px; color: #555; margin-bottom: 12px; }
+  .testimonial blockquote { font-style: italic; color: #1A1A1A; }
+  .note { background:#FFF3CD; border:1px dashed #FFC107; border-radius:8px; padding:14px 18px; font-size:15px; color:#7a5c00; margin:16px 0; }
+
+  .benefits { background: #FFFFFF; }
+  .benefits h2 { font-size: 32px; text-align: center; margin-bottom: 32px; color: #1A1A1A; }
+  .benefits ul { list-style: none; }
+  .benefits li { padding: 14px 0 14px 40px; position: relative; font-size: 19px; border-bottom: 1px solid #F0F0F0; }
+  .benefits li::before { content: "✓"; position: absolute; left: 0; top: 12px; color: #388E3C; font-weight: 800; font-size: 26px; }
+
+  .product-detail { background: #FFF8E1; }
+  .product-detail h2 { font-size: 30px; text-align: center; margin-bottom: 32px; }
+  .module { background: white; border-radius: 8px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #D32F2F; }
+  .module h3 { color: #D32F2F; font-size: 22px; margin-bottom: 8px; }
+
+  .bonuses { background: #FFFFFF; }
+  .bonuses h2 { font-size: 32px; text-align: center; margin-bottom: 32px; color: #1A1A1A; }
+  .bonus { background: #FFF8E1; border: 3px dashed #FFC107; border-radius: 12px; padding: 24px; margin: 16px 0; }
+  .bonus-tag { display: inline-block; background: #D32F2F; color: white; padding: 6px 16px; border-radius: 4px; font-weight: 700; margin-bottom: 12px; }
+  .bonus h3 { color: #1A1A1A; font-size: 22px; margin-bottom: 8px; }
+  .price-line { margin-top: 12px; font-size: 18px; }
+  .free { color: #D32F2F; font-weight: 800; font-size: 20px; }
+
+  .value-stack-section { background: #F5F5F5; }
+  .value-stack-section h2 { font-size: 30px; text-align: center; margin-bottom: 24px; }
+  .value-stack { width: 100%; border-collapse: collapse; font-size: 19px; background: white; border-radius: 8px; overflow: hidden; }
+  .value-stack td { padding: 16px; border-bottom: 1px solid #E0E0E0; }
+  .value-stack .amount { text-align: right; font-weight: 700; }
+  .value-stack .total { background: #1A1A1A; color: white; }
+  .value-stack .total td { font-size: 22px; font-weight: 800; }
+  .value-stack .today { background: #FFD700; }
+  .value-stack .today td { font-size: 28px; font-weight: 800; color: #D32F2F; }
+  .saving { background: #FFE0B2; }
+  .saving td { font-size: 18px; font-weight: 700; color: #1A1A1A; }
+  .price-note { text-align:center; font-size:15px; color:#777; margin-top:12px; }
+
+  .guarantee-section { background: #FFFFFF; text-align: center; }
+  .badge { width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(#FFD700, #FFC107); border: 6px solid #D32F2F; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transform: rotate(-8deg); }
+  .badge-inner { text-align: center; color: #D32F2F; font-weight: 800; font-size: 20px; transform: rotate(8deg); }
+  .guarantee-section h2 { font-size: 28px; margin-bottom: 16px; }
+  .guarantee-section p { max-width: 600px; margin: 0 auto 12px; font-size: 18px; }
+
+  .cert { background: #FFF8E1; text-align: center; }
+  .cert h2 { font-size: 28px; color: #1A1A1A; margin-bottom: 12px; }
+  .cert p.lead { max-width: 620px; margin: 0 auto 24px; font-size: 18px; color: #444; }
+  .cert .cert-img { max-width: 360px; margin: 0 auto; background: #fff; padding: 10px; border: 1px solid #E0D6B0; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+  .cert .cert-img img { width: 100%; border-radius: 6px; display: block; }
+  .cert .cert-meta { font-size: 15px; color: #777; margin-top: 14px; }
+
+  .countdown-wrapper { text-align: center; padding: 36px 20px; background: #1A1A1A; color: white; }
+  .countdown-wrapper p { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #FFD700; }
+  .countdown { display: flex; justify-content: center; gap: 12px; }
+  .countdown > div { background: #D32F2F; color: #FFD700; padding: 16px; border-radius: 8px; min-width: 80px; text-align: center; }
+  .countdown span { font-size: 36px; font-weight: 800; display: block; }
+  .countdown label { font-size: 12px; letter-spacing: 1px; }
+
+  .cta-button { display: block; background: #FFD700; color: #D32F2F; font-size: 25px; font-weight: 800; text-align: center; padding: 24px 28px; border: 4px solid #1A1A1A; border-radius: 12px; text-decoration: none; margin: 32px auto 10px; max-width: 600px; box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4); animation: pulse 1.8s infinite; transition: transform 0.2s; text-transform: uppercase; }
+  .cta-button:hover { transform: translateY(-3px); background: #FFC107; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+  .cta-subtext { text-align: center; font-size: 15px; color: #666; margin-bottom: 28px; }
+  .steps { max-width: 560px; margin: 8px auto 0; font-size: 16px; color:#555; }
+
+  .faq { background: #F5F5F5; }
+  .faq h2 { font-size: 30px; text-align: center; margin-bottom: 32px; }
+  .faq-item { background: white; padding: 20px; margin-bottom: 12px; border-radius: 8px; border-left: 4px solid #FFC107; }
+  .faq-item h3 { color: #D32F2F; font-size: 19px; margin-bottom: 8px; }
+
+  .scarcity { background:#FFF8E1; text-align:center; }
+  .scarcity h2 { font-size:30px; color:#D32F2F; }
+
+  .ps-section { background: #FFF8E1; }
+  .ps-section h2 { color: #D32F2F; font-size: 26px; margin-bottom: 24px; text-align: center; }
+  .ps-section p { margin-bottom: 20px; }
+  .ps-section strong { color: #D32F2F; }
+
+  footer { background: #1A1A1A; color: #999; text-align: center; padding: 40px 20px; font-size: 14px; }
+  footer a { color: #FFD700; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .headline { font-size: 29px; }
+    .sub-headline { font-size: 18px; }
+    body { font-size: 17px; }
+    section { padding: 40px 16px; }
+    h2 { font-size: 24px !important; }
+    .solution .product-name { font-size: 30px; }
+    .cta-button { font-size: 19px; padding: 18px 18px; }
+    .countdown > div { min-width: 62px; padding: 10px; }
+    .countdown span { font-size: 24px; }
+    .testimonial { flex-direction: column; text-align: center; }
+    .testimonial-avatar { margin: 0 auto; }
+    .value-stack td { padding: 12px 8px; font-size: 16px; }
+    .value-stack .today td { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ URGENCY BANNER ============ -->
+<div class="urgency-banner">
+  ⏰ Ưu đãi tháng 6 còn lại: <span id="banner-countdown">--</span>
+</div>
+
+<!-- ============ BƯỚC 1+2+3: HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <p class="pre-headline">Dành riêng cho chị em từ 26 tuổi trở lên, nám đậm hai bên gò má, đã thử nhiều spa và kem online mà da vẫn xỉn màu...</p>
+    <h1 class="headline">Hỗ trợ làm <em>mờ nám</em>, trả lại làn da sáng đều màu chỉ với 3 phút mỗi tối</h1>
+    <p class="sub-headline">Bộ ba hoạt chất Tranexamic Acid, Niacinamide và Alpha Arbutin nâng niu làn da từ gốc hắc sắc tố. An toàn cho cả da nhạy cảm, không lột tẩy, không corticoid, chưa tới 8.000đ mỗi đêm.</p>
+    <div class="hero-img">
+      <img class="fluid" src="https://raw.githubusercontent.com/goldhomebeauty-creator/ba12days-assets/main/skin-night-cream-2.jpg" alt="Skin Night Cream BA12DAYS">
+    </div>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 4: PAIN ============ -->
+<section class="pain-section">
+  <div class="container">
+    <h2>Chị có đang ở trong tình trạng này?</h2>
+    <p>Sáng nào chị cũng đứng trước gương, kéo lớp kem nền dày che đi mảng nám hai bên gò má. Ra đường thì nơm nớp sợ nắng hắt vào. Chụp ảnh cùng con thì né máy, hoặc xoá đi xoá lại mãi không ưng tấm nào.</p>
+    <p>Nám không tự lùi đi. Càng nắng, càng căng thẳng, càng thức khuya thì mảng sạm càng đậm và lan rộng. Lớp nền che được hôm nay, nhưng một năm nữa sẽ phải tô dày hơn, và sự tự ti cứ lớn dần theo từng tấm ảnh chị bỏ qua.</p>
+    <p>Nhiều chị từng tin rằng nám phải "đánh bay trong 5 đến 7 ngày", phải lột cho bong lớp da sạm. Sự thật ngược lại. Nám sinh ra từ hắc sắc tố melanin nằm sâu dưới lớp đáy biểu bì. Lột tẩy bề mặt chỉ làm da mỏng yếu rồi nám quay lại đậm hơn. Muốn da đều màu bền vững, phải ức chế melanin từ gốc và nuôi da khoẻ, kiên trì theo thời gian.</p>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 5: GIẢI PHÁP ============ -->
+<section class="solution">
+  <div class="container">
+    <h2>Đó là lý do Giang làm ra</h2>
+    <div class="product-name">Skin Night Cream</div>
+    <p class="sub-headline">Kem dưỡng đêm hỗ trợ mờ nám, sáng đều màu, tận dụng đúng "thời điểm vàng" khi da tái tạo mạnh nhất.</p>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 6: ORIGIN STORY ============ -->
+<section class="story">
+  <div class="container">
+    <h2>Câu chuyện đằng sau hũ kem này</h2>
+    <p>Năm 26 tuổi, sau khi sinh con đầu lòng, nội tiết trong người Giang đảo lộn. Hai bên gò má bắt đầu nổi lên những mảng nám sạm, ngày một đậm hơn. Soi gương mỗi sáng, Giang gần như không nhận ra làn da của chính mình.</p>
+    <p>Giang chạy khắp các spa, bấu víu vào đủ loại kem trên thị trường, mong lấy lại làn da để tự tin như thời con gái. Nhưng càng chữa, da càng bị tàn phá. Giang trở thành nạn nhân của kem trộn, của những dòng kem đắt tiền mà không hiệu quả, đi hết spa này tới spa khác chỉ nhận thêm nỗi đau, mất niềm tin và tiền bạc.</p>
+    <blockquote>"Phải chính mình làm, chính mình nhìn, chính mình trải nghiệm thì mới tin."</blockquote>
+    <p>Giang ngày đêm tự học về nội tiết, về cơ chế hình thành nám, về khí hậu Việt Nam và những vấn đề da người Việt hay gặp. Đi nhiều nơi, gặp các chuyên gia làm đẹp, rồi từng bước tự chăm lành làn da cho chính mình. Da Giang sáng dần lên, những mảng nám mờ đi, và quan trọng nhất là Giang tìm lại được sự tự tin.</p>
+    <p>Giang bắt đầu chia sẻ cho chị em, nhất là những người mẹ bỉm sữa cùng cảnh nám sau sinh như mình. Đầu tiên một chị, rồi hai chị, rồi rất nhiều chị tìm đến. Từ đó những cơ sở spa đầu tiên hình thành, và sau gần 10 năm tâm huyết, BA12DAYS ra đời với nguyên liệu nhập khẩu, công thức chăm da khoa học và an toàn.</p>
+    <p>Skin Night Cream chính là thứ Giang ước có được trong những đêm thức trắng chăm con, soi gương rồi tủi thân vì làn da sạm nám. Giang làm ra nó để không người phụ nữ nào phải chịu đựng nỗi đau tàn phá làn da thêm một lần nào nữa.</p>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 7: CƠ CHẾ ============ -->
+<section class="mechanism">
+  <div class="container">
+    <h2>Vì sao Skin Night Cream khác kem trộn ngoài kia?</h2>
+    <p>Bí mật nằm ở chỗ Skin Night Cream không cố xử lý bề mặt, mà tác động đúng nơi nám sinh ra.</p>
+    <ul>
+      <li><b>Tranexamic Acid</b>, hoạt chất "vàng" trong chăm sóc sạm nám, hỗ trợ ức chế quá trình hình thành hắc sắc tố melanin và làm sáng vùng da tối màu.</li>
+      <li><b>Alpha Arbutin</b> nhẹ nhàng ức chế melanin, hỗ trợ làm mờ các đốm nám và vết thâm.</li>
+      <li><b>Niacinamide</b> (Vitamin B3) giúp da đều màu, củng cố hàng rào bảo vệ và se khít lỗ chân lông.</li>
+      <li><b>Glycerin và Hydroxyethyl Urea</b> cấp ẩm sâu, giữ da căng mướt suốt đêm.</li>
+    </ul>
+    <p>Ban đêm là thời điểm da tái tạo mạnh nhất và không chịu tác động của nắng. Thoa một lớp mỏng mỗi tối, các hoạt chất có trọn vẹn 6 đến 8 tiếng để thẩm thấu và làm việc.</p>
+    <p>Làn da đều màu không đến sau một đêm. Nó đến từ sự kiên trì mỗi tối của chị, cộng với công thức chăm đúng cơ chế. Đó là lý do da đẹp lên một cách bền vững, thay vì "bùng" lên rồi "tụt" xuống như khi dùng kem lột tẩy.</p>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 8: BẰNG CHỨNG ============ -->
+<section class="proof">
+  <div class="container">
+    <h2>Làn da chị em đã thay đổi thế nào</h2>
+    <figure class="fb-card">
+      <img class="fluid" src="https://raw.githubusercontent.com/goldhomebeauty-creator/ba12days-assets/main/feedback-hoa-le.jpg" alt="Hình ảnh trước và sau của khách Hoa Lê">
+      <figcaption>
+        <h4>Chị Hoa Lê · Sầm Sơn, Thanh Hóa</h4>
+        <blockquote>"Theo kem chị dùng bấy lâu nay da phê rồi chị ơi."</blockquote>
+        <p class="caption">Hình ảnh trước và sau khi chị Hoa Lê kiên trì chăm da cùng BA12DAYS.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="fb-card">
+      <img class="fluid" src="https://raw.githubusercontent.com/goldhomebeauty-creator/ba12days-assets/main/feedback-hong-nhung.jpg" alt="Hình ảnh trước và sau của khách Hồng Nhung">
+      <figcaption>
+        <h4>Chị Hồng Nhung · Kim Bôi, Hòa Bình</h4>
+        <p class="caption">Làn da chị Hồng Nhung trước và sau khi dùng mỹ phẩm BA12DAYS.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="fb-card">
+      <img class="fluid" src="https://raw.githubusercontent.com/goldhomebeauty-creator/ba12days-assets/main/feedback-my-duyen.jpg" alt="Hình ảnh trước và sau của khách Mỹ Duyên">
+      <figcaption>
+        <h4>Chị Mỹ Duyên · Cam Ranh</h4>
+        <p class="caption">Kết quả sau 2 tháng chăm da và dưỡng kem cùng BA12DAYS của chị Mỹ Duyên.</p>
+      </figcaption>
+    </figure>
+
+    <p class="caption" style="margin-top:18px;">Hình ảnh và phản hồi thật từ khách hàng của Giang. Kết quả nhanh hay chậm tùy cơ địa và sự kiên trì của mỗi người.</p>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 9: LỢI ÍCH ============ -->
+<section class="benefits">
+  <div class="container">
+    <h2>Khi đồng hành cùng Skin Night Cream, chị nhận được:</h2>
+    <ul>
+      <li>Làn da hai bên gò má sáng dần và đều màu hơn theo từng tuần kiên trì</li>
+      <li>Lớp nền mỏng đi, có những ngày chị tự tin ra đường với làn da mộc</li>
+      <li>Bộ ba hoạt chất chuẩn khoa học thay cho kem trộn không rõ nguồn gốc</li>
+      <li>Quy trình tối giản 3 bước, 3 phút mỗi tối, không cầu kỳ nhiều lớp</li>
+      <li>An toàn cho cả da nhạy cảm, không corticoid, không lột tẩy bào mòn</li>
+      <li>Da được cấp ẩm, bớt khô ráp và căng mướt hơn khi ngủ dậy</li>
+      <li>Hiểu đúng cơ chế nám để thôi đốt tiền vào "trị nám cấp tốc"</li>
+      <li>Được Giang và đội ngũ tư vấn liệu trình riêng cho đúng tình trạng da của chị</li>
+      <li>Chỉ chưa tới 8.000đ mỗi đêm cho việc chăm da tử tế và bền vững</li>
+      <li>Tặng kèm cẩm nang trị nám tại nhà để chăm da đúng cách cả ngày lẫn đêm</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CTA #1 ============ -->
+<div class="container">
+  <a href="#dat-hang" class="cta-button">Nhận giá ưu đãi 498K + quà tặng</a>
+  <p class="cta-subtext">🔒 Chính hãng 100% · 🌿 Không corticoid, không lột tẩy · 💛 Đội ngũ Giang tư vấn liệu trình riêng</p>
+</div>
+
+<!-- ============ BƯỚC 10: TRONG GÓI CÓ GÌ ============ -->
+<section class="product-detail">
+  <div class="container">
+    <h2>Trong hũ Skin Night Cream có gì?</h2>
+    <div class="module">
+      <h3>Kem dưỡng đêm 20g</h3>
+      <p>Một hũ dùng được khoảng 1,5 đến 2 tháng cho việc chăm da mỗi tối. Bao bì minh bạch, in rõ thành phần.</p>
+    </div>
+    <div class="module">
+      <h3>Bộ hoạt chất chăm nám khoa học</h3>
+      <p>Tranexamic Acid, Niacinamide, Alpha Arbutin cùng lớp cấp ẩm Glycerin và Hydroxyethyl Urea. Hỗ trợ ức chế melanin, làm đều màu và nuôi da khoẻ.</p>
+    </div>
+    <div class="module">
+      <h3>Quy trình 3 bước, 3 phút mỗi tối</h3>
+      <p>Làm sạch, thoa một lớp mỏng Skin Night Cream, massage nhẹ để thẩm thấu. Đơn giản để chị duy trì được lâu dài, vì kiên trì mới là chìa khoá.</p>
+    </div>
+    <div class="module">
+      <h3>Đồng hành cùng đội ngũ BA12DAYS</h3>
+      <p>Chị không chăm da một mình. Đội ngũ của Giang theo sát, nhắc lịch và tư vấn điều chỉnh theo tiến triển làn da.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 11: QUÀ TẶNG ============ -->
+<section class="bonuses">
+  <div class="container">
+    <h2>🎁 Quà tặng riêng cho 20 chị đặt trong tháng 6</h2>
+    <div class="bonus">
+      <div class="bonus-tag">🎁 QUÀ #1</div>
+      <h3>Ebook "Cẩm nang trị nám tại nhà"</h3>
+      <p>Trọn bộ kiến thức chăm da nám đúng cách cả ngày lẫn đêm, cách nhận biết 3 loại nám và lộ trình chăm phù hợp cho từng loại.</p>
+      <div class="price-line"><span class="free">MIỄN PHÍ</span></div>
+    </div>
+    <div class="bonus">
+      <div class="bonus-tag">🎁 QUÀ #2</div>
+      <h3>Buổi tư vấn liệu trình da riêng cùng đội ngũ Giang</h3>
+      <p>Soi tình trạng da của chị, gợi ý lộ trình và cách dùng đúng để hũ kem phát huy tốt nhất.</p>
+      <div class="price-line"><span class="free">MIỄN PHÍ</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 12: TỔNG GIÁ TRỊ ============ -->
+<section class="value-stack-section">
+  <div class="container">
+    <h2>Tổng giá trị chị nhận được</h2>
+    <table class="value-stack">
+      <tr><td>Skin Night Cream 20g</td><td class="amount">598.000đ</td></tr>
+      <tr><td>Quà 1: Ebook cẩm nang trị nám tại nhà</td><td class="amount">Tặng</td></tr>
+      <tr><td>Quà 2: Tư vấn liệu trình da riêng</td><td class="amount">Tặng</td></tr>
+      <tr class="total"><td>Giá gốc</td><td class="amount">598.000đ</td></tr>
+      <tr class="today"><td>Tháng 6, chỉ còn</td><td class="amount">498.000đ</td></tr>
+      <tr class="saving"><td>Chị tiết kiệm</td><td class="amount">100.000đ + 2 quà tặng</td></tr>
+    </table>
+    <p class="price-note">Tính ra chưa tới 8.000đ mỗi đêm cho một làn da được chăm tử tế.</p>
+    <p class="price-note">Muốn nhanh và bền hơn? Nhiều chị chọn thêm kem chống nắng Love The Sun thành bộ Ngày và Đêm, vì nám rất sợ nắng. Chị nhắn để Giang tư vấn combo phù hợp.</p>
+  </div>
+</section>
+
+<!-- ============ COUNTDOWN ============ -->
+<div class="countdown-wrapper">
+  <p>⏰ Ưu đãi tháng 6 kết thúc sau:</p>
+  <div class="countdown">
+    <div><span id="days">00</span><label>NGÀY</label></div>
+    <div><span id="hours">00</span><label>GIỜ</label></div>
+    <div><span id="minutes">00</span><label>PHÚT</label></div>
+    <div><span id="seconds">00</span><label>GIÂY</label></div>
+  </div>
+</div>
+
+<!-- ============ CTA #2 ============ -->
+<div class="container">
+  <a href="#dat-hang" class="cta-button">Đặt Skin Night Cream giá 498K</a>
+  <p class="cta-subtext">🔒 Chính hãng 100% · 🌿 Không corticoid, không lột tẩy · 💛 Tặng ebook + tư vấn riêng</p>
+</div>
+
+<!-- ============ BƯỚC 13: CAM KẾT ============ -->
+<section class="guarantee-section">
+  <div class="container">
+    <div class="badge"><div class="badge-inner">CHÍNH HÃNG<br><strong>100%</strong><br>AN TOÀN</div></div>
+    <h2>Cam kết của Giang</h2>
+    <p>Hàng chính hãng BA12DAYS, thành phần minh bạch in rõ trên bao bì. Tuyệt đối không corticoid, không lột tẩy, không bào mòn da.</p>
+    <p>Nếu da chị không hợp hoặc có dấu hiệu kích ứng, chị ngừng dùng và nhắn ngay cho đội ngũ. Giang sẽ tư vấn xử lý và hỗ trợ chị tìm giải pháp phù hợp với làn da của mình.</p>
+  </div>
+</section>
+
+<!-- ============ GIẤY CÔNG BỐ ============ -->
+<section class="cert">
+  <div class="container">
+    <h2>Sản phẩm chính hãng, có giấy công bố</h2>
+    <p class="lead">Skin Night Cream đã được công bố mỹ phẩm theo quy định, có dấu xác nhận của Sở Y Tế. Chị hoàn toàn yên tâm về nguồn gốc và độ an toàn, không phải kem trộn, không hàng trôi nổi.</p>
+    <div class="cert-img">
+      <img src="https://raw.githubusercontent.com/goldhomebeauty-creator/ba12days-assets/main/giay-cong-bo-skin-night-cream.png" alt="Phiếu công bố sản phẩm mỹ phẩm Skin Night Cream BA12DAYS">
+    </div>
+    <p class="cert-meta">Phiếu công bố sản phẩm mỹ phẩm BA12DAYS · Skin Night Cream · Số tiếp nhận 26032/25/CBMP-HN</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="container">
+    <h2>Chị em hay hỏi Giang</h2>
+    <div class="faq-item">
+      <h3>Dùng bao lâu thì thấy da cải thiện?</h3>
+      <p>Nám hình thành từ gốc melanin nên cần kiên trì theo thời gian, không có chuyện hết sau vài ngày. Đa số chị cảm nhận da sáng và mịn hơn trước, còn mảng nám mờ dần thì cần duy trì đều theo liệu trình. Giang luôn nói thật điều này để chị không kỳ vọng sai.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Da nhạy cảm dùng được không?</h3>
+      <p>Được. Công thức ưu tiên dịu nhẹ, không corticoid, không lột tẩy. Nếu chị từng dùng kem trộn, hãy nhắn để Giang tư vấn cách bắt đầu nhẹ nhàng cho da quen.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Em từng thất bại với nhiều sản phẩm rồi, sao tin được?</h3>
+      <p>Giang hiểu cảm giác đó, vì chính Giang từng là nạn nhân của kem trộn và spa vô tâm. Đó là lý do BA12DAYS chọn minh bạch thành phần và đồng hành tư vấn, thay vì hứa hẹn "thần tốc". Chị cứ thử với đúng kỳ vọng và để đội ngũ theo sát cùng chị.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 14 + 15: KHAN HIẾM + CTA #3 ============ -->
+<section class="scarcity">
+  <div class="container">
+    <h2>⚠ Chỉ còn 20 suất giá ưu đãi tháng 6</h2>
+    <p style="font-size:19px; margin:16px 0;">Sau khi hết 20 suất hoặc qua 23h59 ngày 30/06/2026, giá trở lại 598.000đ và ngừng tặng kèm ebook cùng buổi tư vấn riêng.</p>
+    <a href="#dat-hang" class="cta-button">Giữ 1 trong 20 suất ưu đãi</a>
+    <p class="cta-subtext">🔒 Chính hãng 100% · 🌿 An toàn cho da nhạy cảm · 💛 Tặng ebook + tư vấn riêng</p>
+    <div class="steps">
+      Sau khi bấm nút: <br>
+      Bước 1: Điền Tên và Số điện thoại của chị. <br>
+      Bước 2: Đội ngũ Giang gọi lại xác nhận đơn và tư vấn cách dùng. <br>
+      Bước 3: Nhận hàng tận nơi, kiểm tra rồi mới thanh toán.
+    </div>
+  </div>
+</section>
+
+<!-- ============ BƯỚC 16: P.S. ============ -->
+<section class="ps-section">
+  <div class="container">
+    <h2>Vài lời cuối Giang muốn nhắn chị</h2>
+    <p><strong>P.S.</strong> Nám không tự mờ đi theo thời gian, nó chỉ đậm thêm. Một lớp kem mỏng mỗi tối, đúng cơ chế, là cách dịu dàng và bền vững nhất để chị lấy lại làn da đều màu mà không phải bào mòn da.</p>
+    <p><strong>P.P.S.</strong> Ebook trị nám và buổi tư vấn liệu trình riêng chỉ dành cho 20 chị đặt trong tháng 6. Hết suất là Giang dừng tặng, vì tư vấn 1 kèm 1 cần thời gian thật của đội ngũ.</p>
+    <p><strong>P.P.P.S.</strong> Mỗi tối trôi qua mà chị chưa bắt đầu là thêm một tối làn da không được chăm. 30 ngày nữa chị muốn vẫn kéo lớp nền dày che gò má, hay đã thấy da sáng hơn trong gương? Bấm nút bên trên, để Giang đồng hành cùng chị.</p>
+  </div>
+</section>
+
+<!-- ============ KHỐI ĐẶT HÀNG ============ -->
+<section id="dat-hang" style="background:#FFD700; text-align:center;">
+  <div class="container">
+    <h2 style="font-size:30px; color:#D32F2F; margin-bottom:8px;">Đặt Skin Night Cream hôm nay</h2>
+    <p style="font-size:20px; margin-bottom:6px;"><span style="text-decoration:line-through; color:#8a7a2a;">598.000đ</span> <strong style="color:#D32F2F; font-size:28px;">chỉ còn 498.000đ</strong></p>
+    <p style="margin-bottom:24px; color:#1A1A1A;">Tặng kèm ebook trị nám và buổi tư vấn liệu trình riêng. Chỉ 20 suất trong tháng 6.</p>
+    <a href="https://zalo.me/4583815288539178560" class="cta-button" style="margin-top:0;">Nhắn Zalo đặt hàng ngay</a>
+    <a href="tel:0886789136" class="cta-button" style="background:#1A1A1A; color:#FFD700; animation:none;">Gọi đặt hàng: 088 6789 136</a>
+    <p class="cta-subtext" style="color:#5a4d10;">Chị để lại Tên và Số điện thoại, đội ngũ Giang sẽ gọi lại tư vấn và xác nhận đơn. Nhận hàng, kiểm tra rồi mới thanh toán.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p>© 2026 Thương hiệu mỹ phẩm BA12DAYS</p>
+  <p style="margin-top:10px;"><strong style="color:#FFD700;">Đơn vị chịu trách nhiệm sản xuất:</strong><br>Công ty TNHH Dược Mỹ Phẩm Tabeco Pharma<br>C63-10 Khu C, KĐT Geleximco, Phường Dương Nội, Thành phố Hà Nội, Việt Nam</p>
+  <p style="margin-top:10px;"><strong style="color:#FFD700;">Đơn vị phân phối &amp; chủ sở hữu thương hiệu:</strong><br>Công ty TNHH Vikora Group · MST 0111146540<br>Nhà 46a Ngõ 416 Đường Lạc Long Quân, Phường Tây Hồ, Thành phố Hà Nội, Việt Nam</p>
+  <p style="margin-top:10px;">Cần tư vấn thêm? Nhắn Zalo: <a href="https://zalo.me/4583815288539178560">Zalo OA Ba12days</a></p>
+  <p style="margin-top:10px; font-size:12px;">Skin Night Cream là sản phẩm mỹ phẩm chăm sóc da, không phải thuốc và không có tác dụng thay thế thuốc chữa bệnh.</p>
+</footer>
+
+<!-- ============ COUNTDOWN SCRIPT ============ -->
+<script>
+// COUNTDOWN DEADLINE - 23h59 ngày 30/06/2026 (sửa tại đây nếu đổi đợt)
+const deadline = new Date("2026-06-30T23:59:59+07:00").getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  const distance = deadline - now;
+  if (distance < 0) {
+    document.querySelectorAll('#days, #hours, #minutes, #seconds').forEach(el => el.textContent = '00');
+    document.getElementById('banner-countdown').textContent = 'đã kết thúc';
+    return;
+  }
+  const days = Math.floor(distance / 86400000);
+  const hours = Math.floor((distance % 86400000) / 3600000);
+  const minutes = Math.floor((distance % 3600000) / 60000);
+  const seconds = Math.floor((distance % 60000) / 1000);
+  document.getElementById('days').textContent = String(days).padStart(2,'0');
+  document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+  document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+  document.getElementById('banner-countdown').textContent =
+    String(days).padStart(2,'0') + ' ngày ' +
+    String(hours).padStart(2,'0') + 'h ' +
+    String(minutes).padStart(2,'0') + 'm ' +
+    String(seconds).padStart(2,'0') + 's';
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
