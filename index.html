@@ -426,17 +426,74 @@ Deadline countdown đã set 23h59 30/06/2026 (dòng có "// COUNTDOWN DEADLINE")
   </div>
 </section>
 
-<!-- ============ KHỐI ĐẶT HÀNG ============ -->
-<section id="dat-hang" style="background:#FFD700; text-align:center;">
+<!-- ============ KHỐI ĐẶT HÀNG (form điền thông tin → Google Sheet) ============ -->
+<style>
+  #dat-hang { background:#FFD700; text-align:center; }
+  .order-card { background:#fff; max-width:520px; margin:24px auto 0; padding:28px 24px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.18); text-align:left; }
+  .order-card .field { margin-bottom:14px; }
+  .order-card label { display:block; font-size:15px; font-weight:700; color:#1A1A1A; margin-bottom:6px; }
+  .order-card input, .order-card select { width:100%; padding:14px 16px; font-size:17px; font-family:inherit; border:2px solid #E0D6B0; border-radius:10px; background:#FFFDF5; outline:none; }
+  .order-card input:focus, .order-card select:focus { border-color:#D32F2F; }
+  .order-submit { width:100%; background:#D32F2F; color:#fff; font-size:21px; font-weight:800; text-transform:uppercase; border:none; border-radius:10px; padding:18px; margin-top:6px; cursor:pointer; box-shadow:0 6px 16px rgba(211,47,47,0.35); transition:transform .15s; }
+  .order-submit:hover { transform:translateY(-2px); background:#B71C1C; }
+  .order-note { font-size:14px; color:#777; text-align:center; margin-top:12px; }
+  .order-thanks { display:none; background:#E8F5E9; border:2px solid #388E3C; border-radius:12px; padding:24px; color:#1B5E20; font-size:19px; font-weight:700; max-width:520px; margin:24px auto 0; }
+  .order-or { margin:22px 0 8px; font-weight:700; color:#5a4d10; }
+</style>
+<section id="dat-hang">
   <div class="container">
     <h2 style="font-size:30px; color:#D32F2F; margin-bottom:8px;">Đặt Skin Night Cream hôm nay</h2>
-    <p style="font-size:20px; margin-bottom:6px;"><span style="text-decoration:line-through; color:#8a7a2a;">598.000đ</span> <strong style="color:#D32F2F; font-size:28px;">chỉ còn 498.000đ</strong></p>
-    <p style="margin-bottom:24px; color:#1A1A1A;">Tặng kèm ebook trị nám và buổi tư vấn liệu trình riêng. Chỉ 20 suất trong tháng 6.</p>
-    <a href="https://zalo.me/4583815288539178560" class="cta-button" style="margin-top:0;">Nhắn Zalo đặt hàng ngay</a>
-    <a href="tel:0886789136" class="cta-button" style="background:#1A1A1A; color:#FFD700; animation:none;">Gọi đặt hàng: 088 6789 136</a>
-    <p class="cta-subtext" style="color:#5a4d10;">Chị để lại Tên và Số điện thoại, đội ngũ Giang sẽ gọi lại tư vấn và xác nhận đơn. Nhận hàng, kiểm tra rồi mới thanh toán.</p>
+    <p style="font-size:20px; margin-bottom:4px;"><span style="text-decoration:line-through; color:#8a7a2a;">598.000đ</span> <strong style="color:#D32F2F; font-size:28px;">chỉ còn 498.000đ</strong> / hũ</p>
+    <p style="margin-bottom:8px; color:#1A1A1A;">Tặng kèm ebook trị nám và buổi tư vấn liệu trình riêng. Chỉ 20 suất trong tháng 6.</p>
+
+    <form class="order-card" id="orderForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfP2Msqkc02Ccpst0F-WhUyI6b2fPyldiBavakDvWsVASHKLQ/formResponse"
+          method="POST" target="hidden_iframe" onsubmit="setTimeout(orderDone,400); return true;">
+      <div class="field">
+        <label>Họ tên <span style="color:#D32F2F">*</span></label>
+        <input type="text" name="entry.1866078988" placeholder="Ví dụ: Nguyễn Thị Hương" required>
+      </div>
+      <div class="field">
+        <label>Số điện thoại <span style="color:#D32F2F">*</span></label>
+        <input type="tel" name="entry.1954734568" placeholder="Số điện thoại để Giang gọi lại" required>
+      </div>
+      <div class="field">
+        <label>Email (không bắt buộc)</label>
+        <input type="email" name="entry.671696854" placeholder="Để nhận ebook và ưu đãi qua email">
+      </div>
+      <div class="field">
+        <label>Số lượng muốn đặt</label>
+        <select name="entry.1933578160">
+          <option value="1 hũ">1 hũ (498.000đ)</option>
+          <option value="2 hũ">2 hũ</option>
+          <option value="3 hũ">3 hũ</option>
+          <option value="Combo Ngày + Đêm">Combo Ngày + Đêm (kèm chống nắng)</option>
+          <option value="Nhờ tư vấn thêm">Chưa rõ, nhờ Giang tư vấn</option>
+        </select>
+      </div>
+      <button type="submit" class="order-submit">Đặt hàng ngay</button>
+      <p class="order-note">🔒 Chính hãng 100% · Nhận hàng, kiểm tra rồi mới thanh toán</p>
+    </form>
+
+    <div class="order-thanks" id="orderThanks">
+      ✅ Cảm ơn chị đã đặt hàng! Đội ngũ Giang sẽ gọi lại trong thời gian sớm nhất để xác nhận đơn và tư vấn cách dùng.
+    </div>
+
+    <p class="order-or">Hoặc đặt nhanh qua:</p>
+    <a href="https://zalo.me/4583815288539178560" class="cta-button" style="margin-top:0;">Nhắn Zalo đặt hàng</a>
+    <a href="tel:0886789136" class="cta-button" style="background:#1A1A1A; color:#FFD700; animation:none;">Gọi: 088 6789 136</a>
   </div>
 </section>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;width:0;height:0;border:0;"></iframe>
+<script>
+  function orderDone(){
+    var f=document.getElementById('orderForm');
+    f.style.display='none';
+    document.getElementById('orderThanks').style.display='block';
+    document.getElementById('orderThanks').scrollIntoView({behavior:'smooth', block:'center'});
+    f.reset();
+  }
+</script>
 
 <!-- ============ FOOTER ============ -->
 <footer>
