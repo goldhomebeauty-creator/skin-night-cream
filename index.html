@@ -544,6 +544,10 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   @keyframes orderBlink { 0%,100% { transform:scale(1); background:#D32F2F; box-shadow:0 6px 16px rgba(211,47,47,0.35); } 50% { transform:scale(1.04); background:#F4511E; box-shadow:0 10px 30px rgba(211,47,47,0.7); } }
   .order-submit:hover { transform:translateY(-2px); background:#B71C1C; }
   .order-note { font-size:14px; color:#777; text-align:center; margin-top:12px; }
+  .total-box { background:#FFF3CD; border:2px solid #FFC107; border-radius:10px; padding:12px 16px; margin:2px 0 12px; font-size:18px; font-weight:700; color:#1A1A1A; text-align:center; }
+  .total-box span { color:#D32F2F; font-size:25px; font-weight:800; }
+  .cod-line { font-size:15px; color:#444; margin-bottom:10px; text-align:center; }
+  .cod-line b { color:#1A1A1A; }
   .order-thanks { display:none; background:#E8F5E9; border:2px solid #388E3C; border-radius:12px; padding:24px; color:#1B5E20; font-size:19px; font-weight:700; max-width:520px; margin:24px auto 0; }
   .order-or { margin:22px 0 8px; font-weight:700; color:#5a4d10; }
 </style>
@@ -570,16 +574,18 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
       </div>
       <div class="field">
         <label>Số lượng muốn đặt</label>
-        <select name="entry.1933578160">
-          <option value="1 hũ">1 hũ (498.000đ)</option>
-          <option value="2 hũ">2 hũ</option>
-          <option value="3 hũ">3 hũ</option>
-          <option value="Combo Ngày + Đêm">Combo Ngày + Đêm (kèm chống nắng)</option>
-          <option value="Nhờ tư vấn thêm">Chưa rõ, nhờ Giang tư vấn</option>
+        <select name="entry.1933578160" id="qtySelect" onchange="updateTotal()">
+          <option value="1 hũ (498.000đ)" data-price="498000">1 hũ · 498.000đ</option>
+          <option value="2 hũ (950.000đ)" data-price="950000">2 hũ · 950.000đ (tiết kiệm 46k)</option>
+          <option value="3 hũ (1.260.000đ)" data-price="1260000">3 hũ · 1.260.000đ (tiết kiệm 234k)</option>
+          <option value="Combo Ngày + Đêm (948.000đ)" data-price="948000">Combo Ngày + Đêm · 948.000đ</option>
+          <option value="Nhờ tư vấn thêm" data-price="0">Chưa rõ, nhờ Giang tư vấn</option>
         </select>
       </div>
+      <div class="total-box" id="totalBox">Thành tiền: <span id="totalAmount">498.000đ</span></div>
+      <div class="cod-line">💵 Hình thức: <b>Nhận hàng, kiểm tra rồi mới thanh toán (COD)</b></div>
       <button type="submit" class="order-submit">ĐẶT HÀNG NGAY</button>
-      <p class="order-note">🔒 Chính hãng 100% · Nhận hàng, kiểm tra rồi mới thanh toán</p>
+      <p class="order-note">🔒 Chính hãng 100% · Giao tận nơi toàn quốc</p>
     </form>
 
     <div class="order-thanks" id="orderThanks">
@@ -593,6 +599,17 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 </section>
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;width:0;height:0;border:0;"></iframe>
 <script>
+  function updateTotal(){
+    var sel=document.getElementById('qtySelect');
+    if(!sel) return;
+    var opt=sel.options[sel.selectedIndex];
+    var price=parseInt(opt.getAttribute('data-price'))||0;
+    var box=document.getElementById('totalBox');
+    var amt=document.getElementById('totalAmount');
+    if(price>0){ amt.textContent=price.toLocaleString('vi-VN')+'đ'; box.style.display='block'; }
+    else { box.style.display='none'; }
+  }
+  updateTotal();
   function orderDone(){
     if(window.fbq){ fbq('track','Lead'); }
     var f=document.getElementById('orderForm');
