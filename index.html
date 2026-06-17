@@ -119,10 +119,14 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   .free { color: #D32F2F; font-weight: 800; font-size: 20px; }
 
   .value-stack-section { background: #F5F5F5; }
-  .value-stack-section h2 { font-size: 30px; text-align: center; margin-bottom: 24px; }
+  .value-stack-section h2 { font-size: 30px; text-align: center; margin-bottom: 24px; color: #D32F2F; }
   .value-stack { width: 100%; border-collapse: collapse; font-size: 19px; background: white; border-radius: 8px; overflow: hidden; }
   .value-stack td { padding: 16px; border-bottom: 1px solid #E0E0E0; }
   .value-stack .amount { text-align: right; font-weight: 700; }
+  .value-stack .prod td:first-child { color: #B71C1C; font-weight: 700; }
+  .value-stack .prod .amount { color: #555; }
+  .value-stack .gift td:first-child { color: #C77800; font-weight: 600; }
+  .value-stack .gift .free { color: #2E7D32; font-weight: 800; }
   .value-stack .total { background: #1A1A1A; color: white; }
   .value-stack .total td { font-size: 22px; font-weight: 800; }
   .value-stack .today { background: #FFD700; }
@@ -366,9 +370,9 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   <div class="container">
     <h2>Tổng giá trị chị nhận được</h2>
     <table class="value-stack">
-      <tr><td>Skin Night Cream 20g</td><td class="amount">598.000đ</td></tr>
-      <tr><td>Quà 1: Ebook cẩm nang trị nám tại nhà</td><td class="amount">Tặng</td></tr>
-      <tr><td>Quà 2: Tư vấn liệu trình da riêng</td><td class="amount">Tặng</td></tr>
+      <tr class="prod"><td>Skin Night Cream 20g</td><td class="amount">598.000đ</td></tr>
+      <tr class="gift"><td>🎁 Quà 1: Ebook cẩm nang trị nám tại nhà</td><td class="amount free">Tặng</td></tr>
+      <tr class="gift"><td>🎁 Quà 2: Tư vấn liệu trình da riêng</td><td class="amount free">Tặng</td></tr>
       <tr class="total"><td>Giá gốc</td><td class="amount">598.000đ</td></tr>
       <tr class="today"><td>Tháng 6, chỉ còn</td><td class="amount">498.000đ</td></tr>
       <tr class="saving"><td>Chị tiết kiệm</td><td class="amount">100.000đ + 2 quà tặng</td></tr>
