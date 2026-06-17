@@ -192,6 +192,16 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
     .value-stack td { padding: 12px 8px; font-size: 16px; }
     .value-stack .today td { font-size: 22px; }
   }
+
+  /* === POPUP "khách vừa đặt hàng" (FOMO) === */
+  .sale-popup { position:fixed; left:16px; bottom:16px; z-index:9999; display:flex; align-items:center; gap:12px; background:#fff; border-left:5px solid #D32F2F; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.20); padding:12px 26px 12px 12px; max-width:330px; transform:translateX(-130%); opacity:0; transition:transform .5s ease, opacity .5s ease; font-family:'Be Vietnam Pro',sans-serif; }
+  .sale-popup.show { transform:translateX(0); opacity:1; }
+  .sale-popup .sp-icon { flex-shrink:0; width:40px; height:40px; border-radius:50%; background:#FCE4EC; color:#388E3C; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; }
+  .sale-popup .sp-name { font-weight:800; color:#1A1A1A; font-size:16px; }
+  .sale-popup .sp-text { font-size:14px; color:#444; }
+  .sale-popup .sp-time { font-size:12px; color:#2E7D32; margin-top:2px; }
+  .sale-popup .sp-close { position:absolute; top:6px; right:9px; color:#bbb; font-size:18px; cursor:pointer; line-height:1; }
+  @media (max-width:768px){ .sale-popup { left:10px; right:10px; bottom:10px; max-width:none; } }
 </style>
 </head>
 <body>
@@ -593,6 +603,35 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
+</script>
+
+<!-- ============ POPUP "khách vừa đặt hàng" (FOMO) ============ -->
+<div id="salePopup" class="sale-popup">
+  <span class="sp-close" onclick="document.getElementById('salePopup').classList.remove('show')">×</span>
+  <div class="sp-icon">✓</div>
+  <div>
+    <div class="sp-name" id="spName">Chị Hương · Hà Nội</div>
+    <div class="sp-text" id="spText">vừa đặt Skin Night Cream</div>
+    <div class="sp-time" id="spTime">vài phút trước · đã xác minh</div>
+  </div>
+</div>
+<script>
+(function(){
+  var names=["Chị Hương · Hà Nội","Chị Lan · Hải Phòng","Chị Mai · Đà Nẵng","Chị Thu · TP.HCM","Chị Nga · Thanh Hoá","Chị Hằng · Nghệ An","Chị Phương · Bắc Ninh","Chị Yến · Cần Thơ","Chị Trang · Quảng Ninh","Chị Loan · Nam Định","Chị Vân · Hải Dương","Chị Linh · Vũng Tàu","Chị Đào · Hoà Bình","Chị Bích · Thái Nguyên"];
+  var items=["vừa đặt 1 hũ Skin Night Cream","vừa đặt 2 hũ Skin Night Cream","vừa đặt combo Ngày + Đêm","vừa đặt Skin Night Cream"];
+  var pop=document.getElementById('salePopup');
+  if(!pop) return;
+  var nameEl=document.getElementById('spName'), textEl=document.getElementById('spText'), timeEl=document.getElementById('spTime');
+  function rnd(a){ return a[Math.floor(Math.random()*a.length)]; }
+  function show(){
+    nameEl.textContent=rnd(names);
+    textEl.textContent=rnd(items);
+    timeEl.textContent=(Math.floor(Math.random()*9)+1)+' phút trước · đã xác minh';
+    pop.classList.add('show');
+    setTimeout(function(){ pop.classList.remove('show'); }, 5000);
+  }
+  setTimeout(function loop(){ show(); setTimeout(loop, 9000+Math.floor(Math.random()*8000)); }, 5000);
+})();
 </script>
 
 </body>
