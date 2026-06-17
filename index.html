@@ -151,7 +151,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   .countdown span { font-size: 36px; font-weight: 800; display: block; }
   .countdown label { font-size: 12px; letter-spacing: 1px; }
 
-  .cta-button { display: block; background: #FFD700; color: #D32F2F; font-size: 25px; font-weight: 800; text-align: center; padding: 24px 28px; border: 4px solid #1A1A1A; border-radius: 12px; text-decoration: none; margin: 32px auto 10px; max-width: 600px; box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4); animation: pulse 1.8s infinite; transition: transform 0.2s; text-transform: uppercase; }
+  .cta-button { display: block; background: #FFD700; color: #D32F2F; font-size: 25px; font-weight: 800; line-height: 1.4; text-align: center; padding: 22px 28px; border: 4px solid #1A1A1A; border-radius: 12px; text-decoration: none; margin: 32px auto 10px; max-width: 600px; box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4); animation: pulse 1.8s infinite; transition: transform 0.2s; text-transform: uppercase; }
   .cta-button:hover { transform: translateY(-3px); background: #FFC107; }
   @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
   .cta-subtext { text-align: center; font-size: 15px; color: #666; margin-bottom: 28px; }
@@ -539,7 +539,9 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   .order-card label { display:block; font-size:15px; font-weight:700; color:#1A1A1A; margin-bottom:6px; }
   .order-card input, .order-card select { width:100%; padding:14px 16px; font-size:17px; font-family:inherit; border:2px solid #E0D6B0; border-radius:10px; background:#FFFDF5; outline:none; }
   .order-card input:focus, .order-card select:focus { border-color:#D32F2F; }
-  .order-submit { width:100%; background:#D32F2F; color:#fff; font-size:21px; font-weight:800; text-transform:uppercase; border:none; border-radius:10px; padding:18px; margin-top:6px; cursor:pointer; box-shadow:0 6px 16px rgba(211,47,47,0.35); transition:transform .15s; }
+  .order-submit { width:100%; background:#D32F2F; color:#fff; font-size:23px; font-weight:800; letter-spacing:1px; line-height:1.5; font-family:'Be Vietnam Pro',sans-serif; border:none; border-radius:10px; padding:20px 16px; margin-top:6px; cursor:pointer; box-shadow:0 6px 16px rgba(211,47,47,0.35); animation:orderBlink 1.1s ease-in-out infinite; transition:transform .15s; }
+  .order-submit:hover { animation:none; transform:scale(1.03); background:#B71C1C; }
+  @keyframes orderBlink { 0%,100% { transform:scale(1); background:#D32F2F; box-shadow:0 6px 16px rgba(211,47,47,0.35); } 50% { transform:scale(1.04); background:#F4511E; box-shadow:0 10px 30px rgba(211,47,47,0.7); } }
   .order-submit:hover { transform:translateY(-2px); background:#B71C1C; }
   .order-note { font-size:14px; color:#777; text-align:center; margin-top:12px; }
   .order-thanks { display:none; background:#E8F5E9; border:2px solid #388E3C; border-radius:12px; padding:24px; color:#1B5E20; font-size:19px; font-weight:700; max-width:520px; margin:24px auto 0; }
@@ -576,7 +578,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
           <option value="Nhờ tư vấn thêm">Chưa rõ, nhờ Giang tư vấn</option>
         </select>
       </div>
-      <button type="submit" class="order-submit">Đặt hàng ngay</button>
+      <button type="submit" class="order-submit">ĐẶT HÀNG NGAY</button>
       <p class="order-note">🔒 Chính hãng 100% · Nhận hàng, kiểm tra rồi mới thanh toán</p>
     </form>
 
