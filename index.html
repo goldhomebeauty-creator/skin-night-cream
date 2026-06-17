@@ -208,7 +208,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 
 <!-- ============ URGENCY BANNER ============ -->
 <div class="urgency-banner">
-  ⏰ Ưu đãi tháng 6 còn lại: <span id="banner-countdown">--</span>
+  ⏰ Giá ưu đãi HÔM NAY kết thúc sau: <span id="banner-countdown">--</span>
 </div>
 
 <!-- ============ BƯỚC 1+2+3: HERO ============ -->
@@ -396,9 +396,8 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 
 <!-- ============ COUNTDOWN ============ -->
 <div class="countdown-wrapper">
-  <p>⏰ Ưu đãi tháng 6 kết thúc sau:</p>
+  <p>⏰ Giá ưu đãi hôm nay kết thúc sau:</p>
   <div class="countdown">
-    <div><span id="days">00</span><label>NGÀY</label></div>
     <div><span id="hours">00</span><label>GIỜ</label></div>
     <div><span id="minutes">00</span><label>PHÚT</label></div>
     <div><span id="seconds">00</span><label>GIÂY</label></div>
@@ -578,30 +577,22 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 
 <!-- ============ COUNTDOWN SCRIPT ============ -->
 <script>
-// COUNTDOWN DEADLINE - 23h59 ngày 30/06/2026 (sửa tại đây nếu đổi đợt)
-const deadline = new Date("2026-06-30T23:59:59+07:00").getTime();
-
+// Đếm ngược tới CUỐI NGÀY hôm nay, tự reset mỗi ngày (giá ưu đãi hôm nay)
 function updateCountdown() {
-  const now = Date.now();
-  const distance = deadline - now;
-  if (distance < 0) {
-    document.querySelectorAll('#days, #hours, #minutes, #seconds').forEach(el => el.textContent = '00');
-    document.getElementById('banner-countdown').textContent = 'đã kết thúc';
-    return;
-  }
-  const days = Math.floor(distance / 86400000);
-  const hours = Math.floor((distance % 86400000) / 3600000);
+  const now = new Date();
+  const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+  let distance = end.getTime() - now.getTime();
+  if (distance < 0) distance = 0;
+  const hours = Math.floor(distance / 3600000);
   const minutes = Math.floor((distance % 3600000) / 60000);
   const seconds = Math.floor((distance % 60000) / 1000);
-  document.getElementById('days').textContent = String(days).padStart(2,'0');
-  document.getElementById('hours').textContent = String(hours).padStart(2,'0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
-  document.getElementById('banner-countdown').textContent =
-    String(days).padStart(2,'0') + ' ngày ' +
-    String(hours).padStart(2,'0') + 'h ' +
-    String(minutes).padStart(2,'0') + 'm ' +
-    String(seconds).padStart(2,'0') + 's';
+  const h = String(hours).padStart(2,'0');
+  const m = String(minutes).padStart(2,'0');
+  const s = String(seconds).padStart(2,'0');
+  document.getElementById('hours').textContent = h;
+  document.getElementById('minutes').textContent = m;
+  document.getElementById('seconds').textContent = s;
+  document.getElementById('banner-countdown').textContent = h + 'h ' + m + 'm ' + s + 's';
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
