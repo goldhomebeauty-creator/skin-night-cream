@@ -562,15 +562,15 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
           method="POST" target="hidden_iframe" onsubmit="setTimeout(orderDone,400); return true;">
       <div class="field">
         <label>Họ tên <span style="color:#D32F2F">*</span></label>
-        <input type="text" name="entry.1866078988" placeholder="Ví dụ: Nguyễn Thị Hương" required>
+        <input type="text" name="entry.1866078988" placeholder="Ví dụ: Nguyễn Thị Hương" required minlength="2" title="Vui lòng nhập họ tên của chị">
       </div>
       <div class="field">
         <label>Số điện thoại <span style="color:#D32F2F">*</span></label>
-        <input type="tel" name="entry.1954734568" placeholder="Số điện thoại để Giang gọi lại" required>
+        <input type="tel" name="entry.1954734568" placeholder="VD: 0901234567" required pattern="0[0-9]{9}" inputmode="numeric" maxlength="10" title="Số điện thoại phải đúng 10 số và bắt đầu bằng số 0">
       </div>
       <div class="field">
         <label>Email (không bắt buộc)</label>
-        <input type="email" name="entry.671696854" placeholder="Để nhận ebook và ưu đãi qua email">
+        <input type="email" name="entry.671696854" placeholder="Để nhận ebook và ưu đãi qua email" pattern="[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}" title="Nhập email hợp lệ, ví dụ ten@gmail.com">
       </div>
       <div class="field">
         <label>Số lượng muốn đặt</label>
