@@ -510,7 +510,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 
     <form class="order-card" id="orderForm"
           action="https://docs.google.com/forms/d/e/1FAIpQLSfP2Msqkc02Ccpst0F-WhUyI6b2fPyldiBavakDvWsVASHKLQ/formResponse"
-          method="POST" target="hidden_iframe" onsubmit="setTimeout(orderDone,400); return true;">
+          method="POST" target="hidden_iframe" onsubmit="return orderStart(this);">
       <div class="field">
         <label>Họ tên <span style="color:#D32F2F">*</span></label>
         <input type="text" name="entry.1866078988" placeholder="Ví dụ: Nguyễn Thị Hương" required minlength="2" title="Vui lòng nhập họ tên của chị">
@@ -548,7 +548,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
     <a href="tel:0886789136" class="cta-button" style="background:#1A1A1A; color:#FFD700; animation:none;">Gọi: 088 6789 136</a>
   </div>
 </section>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;width:0;height:0;border:0;"></iframe>
+<iframe name="hidden_iframe" id="hidden_iframe" onload="onIframeLoad()" style="display:none;width:0;height:0;border:0;"></iframe>
 <script>
   function updateTotal(){
     var sel=document.getElementById('qtySelect');
@@ -561,13 +561,20 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
     else { box.style.display='none'; }
   }
   updateTotal();
-  function orderDone(){
-    if(window.fbq){ fbq('track','Lead'); }
-    var f=document.getElementById('orderForm');
-    f.style.display='none';
-    document.getElementById('orderThanks').style.display='block';
-    document.getElementById('orderThanks').scrollIntoView({behavior:'smooth', block:'center'});
-    f.reset();
+  var orderSubmitted=false, orderRedirected=false;
+  function goThanks(){
+    if(orderRedirected) return; orderRedirected=true;
+    var sel=document.getElementById('qtySelect');
+    var price=sel?(parseInt(sel.options[sel.selectedIndex].getAttribute('data-price'))||0):0;
+    window.location.href='thankyou.html?total='+price;
+  }
+  function onIframeLoad(){ if(orderSubmitted) goThanks(); }
+  function orderStart(form){
+    orderSubmitted=true;
+    var b=form.querySelector('.order-submit');
+    if(b){ b.textContent='Đang gửi đơn...'; b.style.opacity='0.7'; b.style.pointerEvents='none'; }
+    setTimeout(goThanks, 3000); // dự phòng nếu iframe onload không bắn
+    return true;
   }
 </script>
 
