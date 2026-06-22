@@ -571,6 +571,20 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   function onIframeLoad(){ if(orderSubmitted) goThanks(); }
   function orderStart(form){
     orderSubmitted=true;
+    try{
+      var sel=document.getElementById('qtySelect');
+      var opt=sel?sel.options[sel.selectedIndex]:null;
+      var price=opt?(parseInt(opt.getAttribute('data-price'))||0):0;
+      var mm=opt?((''+opt.value).match(/^(\d+)/)):null;
+      var q=mm?parseInt(mm[1],10):1;
+      var payload=JSON.stringify({
+        fullname:(form.querySelector('[name="entry.1866078988"]')||{}).value||'',
+        phone:(form.querySelector('[name="entry.1954734568"]')||{}).value||'',
+        email:(form.querySelector('[name="entry.671696854"]')||{}).value||'',
+        qty:q, total:price, product:'Skin Night Cream (kem nám)'
+      });
+      if(navigator.sendBeacon){ navigator.sendBeacon('/api/order', new Blob([payload],{type:'text/plain'})); }
+    }catch(e){}
     var b=form.querySelector('.order-submit');
     if(b){ b.textContent='Đang gửi đơn...'; b.style.opacity='0.7'; b.style.pointerEvents='none'; }
     setTimeout(goThanks, 3000); // dự phòng nếu iframe onload không bắn
