@@ -2,33 +2,10 @@
 // API key lấy từ biến môi trường POS_API_KEY (không hard-code, không lộ ra client).
 
 const SHOP_ID = '20100144';
-// variation_id của sản phẩm "Skin Night Cream" trong POS Vikora. Lấy bằng lệnh tạm ?admin=list rồi điền vào đây.
-const VARIATION_ID = 'REPLACE_ME';
+const VARIATION_ID = '3e984a57-7007-47ae-adc5-4200aa0070a0'; // Skin Night Cream (kem nám đêm) 20g
 const API_BASE = 'https://pos.pages.fm/api/v1';
-const TMP_TOKEN = 'ba12-tmp-7x9k'; // token tạm cho lệnh quản trị, sẽ xóa sau khi lấy variation_id
 
 module.exports = async (req, res) => {
-  const key = process.env.POS_API_KEY;
-
-  // ===== LỆNH TẠM: liệt kê sản phẩm để lấy variation_id (sẽ xóa) =====
-  if (req.method === 'GET') {
-    if (req.query && req.query.admin === 'list' && req.query.t === TMP_TOKEN) {
-      if (!key) { res.status(200).json({ ok: false, error: 'no_key' }); return; }
-      try {
-        const r = await fetch(API_BASE + '/shops/' + SHOP_ID + '/products?api_key=' + encodeURIComponent(key) + '&page_size=100&page_number=1');
-        const d = await r.json().catch(() => ({}));
-        const list = (d.data || []).map(p => ({
-          name: p.name,
-          variations: (p.variations || p.product_variations || []).map(v => ({ id: v.id, retail_price: v.retail_price, fields: v.fields || v.name }))
-        }));
-        res.status(200).json({ ok: true, count: list.length, products: list });
-      } catch (e) { res.status(200).json({ ok: false, error: 'list_exception' }); }
-      return;
-    }
-    res.status(405).json({ ok: false, error: 'method_not_allowed' });
-    return;
-  }
-
   if (req.method !== 'POST') {
     res.status(405).json({ ok: false, error: 'method_not_allowed' });
     return;
@@ -46,6 +23,7 @@ module.exports = async (req, res) => {
     const product = ((body.product || 'Skin Night Cream') + '').trim().slice(0, 200);
     const total = Math.max(0, parseInt(body.total, 10) || 0);
 
+    const key = process.env.POS_API_KEY;
     if (!key) { res.status(200).json({ ok: false, error: 'no_key' }); return; }
 
     // POS theo GIÁ TRÊN TRANG: gửi đơn giá (total/qty) qua variation_info.retail_price.
