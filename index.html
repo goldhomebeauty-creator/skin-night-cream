@@ -58,7 +58,20 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   img.fluid { width: 100%; border-radius: 12px; display: block; }
   .caption { font-size: 14px; color: #888; text-align: center; margin-top: 8px; font-style: italic; }
 
-  .urgency-banner { position: sticky; top: 0; z-index: 100; background: #D32F2F; color: white; text-align: center; padding: 12px; font-size: 17px; font-weight: 700; }
+  .sticky-header { position: sticky; top: 0; z-index: 100; }
+  .urgency-banner { background: #D32F2F; color: white; text-align: center; padding: 12px; font-size: 17px; font-weight: 700; }
+  .site-nav { background:#FFF8E1; border-bottom:2px solid #F0D97A; box-shadow:0 3px 10px rgba(0,0,0,0.10); }
+  .site-nav .nav-inner { max-width:720px; margin:0 auto; display:flex; gap:8px; justify-content:center; padding:8px 10px; }
+  .site-nav a { flex:1; max-width:210px; text-align:center; background:#D32F2F; color:#fff; font-weight:800; font-size:15px; text-decoration:none; padding:10px 6px; border-radius:999px; text-transform:uppercase; letter-spacing:.3px; box-shadow:0 3px 8px rgba(211,47,47,.3); transition:transform .15s, background .15s; }
+  .site-nav a:hover { background:#B71C1C; transform:translateY(-1px); }
+  .site-nav a.buy { background:#1A9E4B; box-shadow:0 3px 8px rgba(26,158,75,.35); }
+  .site-nav a.buy:hover { background:#158a40; }
+  /* chừa khoảng để tiêu đề mục không bị thanh dính che khi bấm nhảy tới */
+  #thanh-phan, #danh-gia, #dat-hang { scroll-margin-top: 118px; }
+  @media (max-width:768px){
+    .site-nav a { font-size:13px; padding:9px 4px; letter-spacing:0; }
+    #thanh-phan, #danh-gia, #dat-hang { scroll-margin-top: 104px; }
+  }
 
   .hero { text-align: center; background: linear-gradient(180deg, #FFF8E1 0%, #FFFFFF 100%); }
   .pre-headline { font-size: 17px; color: #666; font-style: italic; margin-bottom: 16px; }
@@ -228,9 +241,18 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 </head>
 <body>
 
-<!-- ============ URGENCY BANNER ============ -->
-<div class="urgency-banner">
-  ⏰ Giá ưu đãi HÔM NAY kết thúc sau: <span id="banner-countdown">--</span>
+<!-- ============ HEADER DÍNH: BANNER ĐẾM NGƯỢC + MENU ĐIỀU HƯỚNG ============ -->
+<div class="sticky-header">
+  <div class="urgency-banner">
+    ⏰ Giá ưu đãi HÔM NAY kết thúc sau: <span id="banner-countdown">--</span>
+  </div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="#danh-gia">Đánh giá</a>
+      <a href="#thanh-phan">Thành phần</a>
+      <a href="#dat-hang" class="buy">Mua ngay</a>
+    </div>
+  </nav>
 </div>
 
 <!-- ============ BƯỚC 1+2+3: HERO ============ -->
@@ -278,7 +300,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 </section>
 
 <!-- ============ BƯỚC 7: CƠ CHẾ ============ -->
-<section class="mechanism">
+<section class="mechanism" id="thanh-phan">
   <div class="container">
     <h2>Vì sao Skin Night Cream khác kem trộn ngoài kia?</h2>
     <p>Bí mật nằm ở chỗ Skin Night Cream không cố xử lý bề mặt, mà <span class="hl">tác động đúng nơi nám sinh ra</span>.</p>
@@ -298,7 +320,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 </section>
 
 <!-- ============ BƯỚC 8: BẰNG CHỨNG ============ -->
-<section class="proof">
+<section class="proof" id="danh-gia">
   <div class="container">
     <h2>Làn da chị em đã thay đổi thế nào</h2>
     <figure class="fb-card">
