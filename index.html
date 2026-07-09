@@ -201,7 +201,29 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   .sale-popup .sp-text { font-size:14px; color:#444; }
   .sale-popup .sp-time { font-size:12px; color:#2E7D32; margin-top:2px; }
   .sale-popup .sp-close { position:absolute; top:6px; right:9px; color:#bbb; font-size:18px; cursor:pointer; line-height:1; }
-  @media (max-width:768px){ .sale-popup { left:10px; right:10px; bottom:10px; max-width:none; } }
+  @media (max-width:768px){ .sale-popup { left:10px; right:10px; bottom:80px; max-width:none; } }
+
+  /* === Thanh CTA dính đáy (chỉ mobile) === */
+  .mobile-cta-bar { display:none; }
+  @media (max-width:768px){
+    .mobile-cta-bar {
+      position:fixed; left:0; right:0; bottom:0; z-index:9998;
+      display:flex; align-items:center; gap:10px;
+      background:rgba(26,26,26,0.97); padding:10px 12px;
+      box-shadow:0 -4px 16px rgba(0,0,0,0.25);
+    }
+    .mobile-cta-bar.hide { transform:translateY(120%); transition:transform .3s ease; }
+    .mobile-cta-bar .mcb-price { flex-shrink:0; color:#fff; font-size:13px; line-height:1.25; }
+    .mobile-cta-bar .mcb-price b { color:#FFD700; font-size:19px; display:block; }
+    .mobile-cta-bar .mcb-price s { color:#bbb; font-size:12px; }
+    .mobile-cta-bar a {
+      flex:1; text-align:center; background:#FFD700; color:#D32F2F;
+      font-weight:800; font-size:17px; text-decoration:none;
+      padding:14px 10px; border-radius:10px; text-transform:uppercase;
+      animation:pulse 1.8s infinite;
+    }
+    body { padding-bottom:72px; }
+  }
 </style>
 </head>
 <body>
@@ -319,10 +341,10 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
       <li>Quy trình tối giản 3 bước, 3 phút mỗi tối, không cầu kỳ nhiều lớp</li>
       <li>An toàn cho cả da nhạy cảm, không corticoid, không lột tẩy bào mòn</li>
       <li>Da được cấp ẩm, bớt khô ráp và căng mướt hơn khi ngủ dậy</li>
-      <li>Hiểu đúng cơ chế nám để thôi đốt tiền vào "trị nám cấp tốc"</li>
+      <li>Hiểu đúng cơ chế nám để thôi đốt tiền vào những lời hứa "cấp tốc"</li>
       <li>Được Giang và đội ngũ tư vấn liệu trình riêng cho đúng tình trạng da của chị</li>
       <li>Chỉ chưa tới 8.000đ mỗi đêm cho việc chăm da tử tế và bền vững</li>
-      <li>Tặng kèm cẩm nang trị nám tại nhà để chăm da đúng cách cả ngày lẫn đêm</li>
+      <li>Tặng kèm cẩm nang chăm nám tại nhà để chăm da đúng cách cả ngày lẫn đêm</li>
     </ul>
   </div>
 </section>
@@ -366,7 +388,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
       </div>
       <div style="flex:1;">
         <div class="bonus-tag">🎁 QUÀ #1</div>
-        <h3>Ebook lộ trình 28 ngày trị nám tại nhà</h3>
+        <h3>Ebook lộ trình 28 ngày chăm nám tại nhà</h3>
         <p>Cẩm nang của Lê Thu Giang: hiểu cơ chế nám, phương pháp khoa học từ thiên nhiên, hướng dẫn chăm da từng bước ngay tại nhà.</p>
         <div class="price-line"><span class="free">MIỄN PHÍ</span></div>
       </div>
@@ -390,9 +412,12 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   <div class="container">
     <h2>Tổng giá trị chị nhận được</h2>
     <table class="value-stack">
-      <tr class="prod"><td>Skin Night Cream 20g <span style="color:#C77800; font-weight:700;">(kèm 2 quà tặng ở trên)</span></td><td class="amount">598.000đ</td></tr>
-      <tr class="today"><td>Ưu đãi hôm nay, chỉ còn</td><td class="amount">498.000đ</td></tr>
-      <tr class="saving"><td>Chị tiết kiệm</td><td class="amount">100.000đ + 2 quà tặng</td></tr>
+      <tr class="prod"><td>Skin Night Cream 20g (dùng 1,5 đến 2 tháng)</td><td class="amount">598.000đ</td></tr>
+      <tr class="gift"><td>🎁 Ebook lộ trình 28 ngày chăm nám tại nhà</td><td class="amount"><span class="free">Tặng</span> <span style="text-decoration:line-through; color:#999; font-weight:400;">300.000đ</span></td></tr>
+      <tr class="gift"><td>🎁 Buổi tư vấn liệu trình da 1-1 cùng đội ngũ Giang</td><td class="amount"><span class="free">Tặng</span> <span style="text-decoration:line-through; color:#999; font-weight:400;">500.000đ</span></td></tr>
+      <tr class="total"><td>Tổng giá trị chị nhận</td><td class="amount">1.398.000đ</td></tr>
+      <tr class="today"><td>Hôm nay chị chỉ trả</td><td class="amount">498.000đ</td></tr>
+      <tr class="saving"><td>Chị tiết kiệm</td><td class="amount">900.000đ</td></tr>
     </table>
     <p class="price-note">Tính ra chưa tới 8.000đ mỗi đêm cho một làn da được chăm tử tế.</p>
     <p class="price-note">Muốn nhanh và bền hơn? Nhiều chị chọn thêm kem chống nắng Love The Sun thành bộ Ngày và Đêm, vì nám rất sợ nắng. Chị nhắn để Giang tư vấn combo phù hợp.</p>
@@ -422,6 +447,10 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
     <h2>Cam kết của Giang</h2>
     <p>Hàng chính hãng BA12DAYS, thành phần minh bạch in rõ trên bao bì. Tuyệt đối không corticoid, không lột tẩy, không bào mòn da.</p>
     <p>Nếu da chị không hợp hoặc có dấu hiệu kích ứng, chị ngừng dùng và nhắn ngay cho đội ngũ. Giang sẽ tư vấn xử lý và hỗ trợ chị tìm giải pháp phù hợp với làn da của mình.</p>
+    <div style="max-width:600px; margin:20px auto 0; background:#FFF8E1; border:2px solid #FFC107; border-radius:12px; padding:20px 24px;">
+      <p style="font-weight:800; color:#D32F2F; font-size:20px; margin-bottom:6px;">💛 Cam kết đồng hành 7 ngày đầu</p>
+      <p style="margin:0; font-size:17px; color:#444;">Trong 7 ngày đầu, nếu da chị kích ứng hoặc không hợp, chị nhắn đội ngũ Giang để được <strong>đổi sản phẩm phù hợp hoặc hỗ trợ xử lý cùng chị</strong>. Chị không phải tự xoay xở một mình, và không mất tiền oan vì chọn sai như những lần trước.</p>
+    </div>
   </div>
 </section>
 
@@ -477,7 +506,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   <div class="container">
     <h2>Vài lời cuối Giang muốn nhắn chị</h2>
     <p><strong>💛 Điều quan trọng nhất:</strong> Nám không tự mờ đi theo thời gian, nó chỉ đậm thêm. Một lớp kem mỏng mỗi tối, đúng cơ chế, là cách dịu dàng và bền vững nhất để chị lấy lại làn da đều màu mà không phải bào mòn da.</p>
-    <p><strong>🎁 Đừng bỏ lỡ quà hôm nay:</strong> Ebook trị nám và buổi tư vấn liệu trình riêng chỉ dành cho 20 chị đặt hôm nay. Hết suất là Giang dừng tặng, vì tư vấn 1 kèm 1 cần thời gian thật của đội ngũ.</p>
+    <p><strong>🎁 Đừng bỏ lỡ quà hôm nay:</strong> Ebook chăm nám và buổi tư vấn liệu trình riêng chỉ dành cho 20 chị đặt hôm nay. Hết suất là Giang dừng tặng, vì tư vấn 1 kèm 1 cần thời gian thật của đội ngũ.</p>
     <p><strong>⏰ Lời cuối từ Giang:</strong> Mỗi tối trôi qua mà chị chưa bắt đầu là thêm một tối làn da không được chăm. 30 ngày nữa chị muốn vẫn kéo lớp nền dày che gò má, hay đã thấy da sáng hơn trong gương? Bấm nút bên trên, để Giang đồng hành cùng chị.</p>
   </div>
 </section>
@@ -506,7 +535,7 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   <div class="container">
     <h2 style="font-size:30px; color:#D32F2F; margin-bottom:8px;">Đặt Skin Night Cream hôm nay</h2>
     <p style="font-size:20px; margin-bottom:4px;"><span style="text-decoration:line-through; color:#8a7a2a;">598.000đ</span> <strong style="color:#D32F2F; font-size:28px;">chỉ còn 498.000đ</strong> / hũ</p>
-    <p style="margin-bottom:8px; color:#1A1A1A;">Tặng kèm ebook trị nám và buổi tư vấn liệu trình riêng. Chỉ 20 suất hôm nay.</p>
+    <p style="margin-bottom:8px; color:#1A1A1A;">Tặng kèm ebook chăm nám và buổi tư vấn liệu trình riêng. Chỉ 20 suất hôm nay.</p>
 
     <form class="order-card" id="orderForm"
           action="https://docs.google.com/forms/d/e/1FAIpQLSfP2Msqkc02Ccpst0F-WhUyI6b2fPyldiBavakDvWsVASHKLQ/formResponse"
@@ -631,7 +660,7 @@ updateCountdown();
   <div>
     <div class="sp-name" id="spName">Chị Hương · Hà Nội</div>
     <div class="sp-text" id="spText">vừa đặt Skin Night Cream</div>
-    <div class="sp-time" id="spTime">vài phút trước · đã xác minh</div>
+    <div class="sp-time" id="spTime">vài phút trước</div>
   </div>
 </div>
 <script>
@@ -645,11 +674,51 @@ updateCountdown();
   function show(){
     nameEl.textContent=rnd(names);
     textEl.textContent=rnd(items);
-    timeEl.textContent=(Math.floor(Math.random()*9)+1)+' phút trước · đã xác minh';
+    timeEl.textContent=(Math.floor(Math.random()*20)+3)+' phút trước';
     pop.classList.add('show');
-    setTimeout(function(){ pop.classList.remove('show'); }, 5000);
+    setTimeout(function(){ pop.classList.remove('show'); }, 4500);
   }
-  setTimeout(function loop(){ show(); setTimeout(loop, 9000+Math.floor(Math.random()*8000)); }, 5000);
+  setTimeout(function loop(){ show(); setTimeout(loop, 22000+Math.floor(Math.random()*18000)); }, 18000);
+})();
+</script>
+
+<!-- ============ THANH CTA DÍNH ĐÁY (mobile) ============ -->
+<div class="mobile-cta-bar" id="mobileCtaBar">
+  <div class="mcb-price"><s>598k</s><b>498.000đ</b></div>
+  <a href="#dat-hang">Đặt ngay</a>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('mobileCtaBar');
+  var target=document.getElementById('dat-hang');
+  if(!bar||!target||!('IntersectionObserver' in window)) return;
+  // Ẩn thanh khi khối đặt hàng đã hiện trên màn hình (tránh che nút đặt trong form)
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ bar.classList.toggle('hide', e.isIntersecting); });
+  }, { threshold:0.15 });
+  io.observe(target);
+})();
+</script>
+
+<!-- ============ ĐO LƯỜNG: InitiateCheckout + Lead (cho quảng cáo) ============ -->
+<script>
+(function(){
+  function fire(ev, data){ if(window.fbq){ try{ fbq('track', ev, data||{}); }catch(e){} } }
+  // InitiateCheckout: khi khách bắt đầu điền form (chỉ bắn 1 lần)
+  var form=document.getElementById('orderForm'), icFired=false;
+  if(form){
+    form.addEventListener('focusin', function(){
+      if(icFired) return; icFired=true;
+      fire('InitiateCheckout', {content_name:'Skin Night Cream', currency:'VND'});
+    });
+  }
+  // Lead: khi bấm Zalo hoặc Gọi điện (khách chốt qua chat/gọi)
+  document.addEventListener('click', function(e){
+    var a=e.target.closest && e.target.closest('a[href^="https://zalo.me"], a[href^="tel:"]');
+    if(!a) return;
+    var kenh=a.getAttribute('href').indexOf('tel:')===0 ? 'call' : 'zalo';
+    fire('Lead', {content_name:'Skin Night Cream', method:kenh});
+  });
 })();
 </script>
 
