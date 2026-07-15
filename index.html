@@ -58,21 +58,25 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   img.fluid { width: 100%; border-radius: 12px; display: block; }
   .caption { font-size: 14px; color: #888; text-align: center; margin-top: 8px; font-style: italic; }
 
-  .brandbar { background:#FFFFFF; text-align:center; padding:10px 20px 8px; border-bottom:1px solid #F0E0A8; }
-  .brandbar img { height:48px; width:auto; display:inline-block; }
   .sticky-header { position: sticky; top: 0; z-index: 100; }
   .urgency-banner { background: #D32F2F; color: white; text-align: center; padding: 12px; font-size: 17px; font-weight: 700; }
   .site-nav { background:#FFF8E1; border-bottom:2px solid #F0D97A; box-shadow:0 3px 10px rgba(0,0,0,0.10); }
-  .site-nav .nav-inner { max-width:720px; margin:0 auto; display:flex; gap:8px; justify-content:center; padding:8px 10px; }
-  .site-nav a { flex:1; max-width:210px; text-align:center; background:#D32F2F; color:#fff; font-weight:800; font-size:15px; text-decoration:none; padding:10px 6px; border-radius:999px; text-transform:uppercase; letter-spacing:.3px; box-shadow:0 3px 8px rgba(211,47,47,.3); transition:transform .15s, background .15s; }
-  .site-nav a:hover { background:#B71C1C; transform:translateY(-1px); }
-  .site-nav a.buy { background:#1A9E4B; box-shadow:0 3px 8px rgba(26,158,75,.35); }
-  .site-nav a.buy:hover { background:#158a40; }
+  .site-nav .nav-inner { max-width:760px; margin:0 auto; display:flex; gap:10px; align-items:center; justify-content:space-between; padding:6px 12px; }
+  .site-nav .nav-logo { flex:0 0 auto; display:block; line-height:0; }
+  .site-nav .nav-logo img { height:52px; width:auto; display:block; }
+  .site-nav .nav-links { flex:1; display:flex; gap:8px; justify-content:flex-end; }
+  .site-nav .nav-links a { flex:0 1 160px; text-align:center; background:#D32F2F; color:#fff; font-weight:800; font-size:15px; text-decoration:none; padding:10px 6px; border-radius:999px; text-transform:uppercase; letter-spacing:.3px; box-shadow:0 3px 8px rgba(211,47,47,.3); transition:transform .15s, background .15s; }
+  .site-nav .nav-links a:hover { background:#B71C1C; transform:translateY(-1px); }
+  .site-nav .nav-links a.buy { background:#1A9E4B; box-shadow:0 3px 8px rgba(26,158,75,.35); }
+  .site-nav .nav-links a.buy:hover { background:#158a40; }
   /* chừa khoảng để tiêu đề mục không bị thanh dính che khi bấm nhảy tới */
   #thanh-phan, #danh-gia, #dat-hang { scroll-margin-top: 74px; }
   @media (max-width:768px){
-    .site-nav a { font-size:13px; padding:9px 4px; letter-spacing:0; }
-    #thanh-phan, #danh-gia, #dat-hang { scroll-margin-top: 66px; }
+    .site-nav .nav-inner { gap:6px; padding:5px 8px; }
+    .site-nav .nav-logo img { height:40px; }
+    .site-nav .nav-links { gap:5px; }
+    .site-nav .nav-links a { font-size:12px; padding:8px 4px; letter-spacing:0; }
+    #thanh-phan, #danh-gia, #dat-hang { scroll-margin-top: 62px; }
   }
 
   .hero { text-align: center; background: linear-gradient(180deg, #FFF8E1 0%, #FFFFFF 100%); padding-top: 16px; }
@@ -262,18 +266,16 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 </head>
 <body>
 
-<!-- ============ DẢI LOGO THƯƠNG HIỆU ============ -->
-<div class="brandbar">
-  <a href="/"><img src="/logo-ba12days.png" alt="BA12DAYS - Thương hiệu mỹ phẩm"></a>
-</div>
-
-<!-- ============ HEADER DÍNH: MENU ĐIỀU HƯỚNG ============ -->
+<!-- ============ HEADER DÍNH: LOGO + MENU ĐIỀU HƯỚNG ============ -->
 <div class="sticky-header">
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="#danh-gia">Đánh giá</a>
-      <a href="#thanh-phan">Thành phần</a>
-      <a href="#dat-hang" class="buy">Mua ngay</a>
+      <a class="nav-logo" href="/"><img src="/logo-ba12days.png" alt="BA12DAYS - Thương hiệu mỹ phẩm"></a>
+      <div class="nav-links">
+        <a href="#danh-gia">Đánh giá</a>
+        <a href="#thanh-phan">Thành phần</a>
+        <a href="#dat-hang" class="buy">Mua ngay</a>
+      </div>
     </div>
   </nav>
 </div>
