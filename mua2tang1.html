@@ -258,6 +258,8 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
   }
 
   /* === BỔ SUNG CHO TRANG COMBO MUA 2 TẶNG 1 === */
+  .hero-banner { margin:0 auto 18px; max-width:520px; }
+  .hero-banner img { width:100%; display:block; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.12); }
   .hero-combo { display:flex; align-items:center; justify-content:center; gap:10px; margin:26px auto 0; max-width:620px; }
   .hero-combo .hc-item { position:relative; flex:1; margin:0; background:#fff; border:2px solid #F0DCA8; border-radius:14px; padding:10px 10px 12px; box-shadow:0 6px 18px rgba(0,0,0,.08); }
   .hero-combo .hc-item img { width:100%; border-radius:10px; display:block; }
@@ -323,6 +325,11 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
 <!-- ============ BƯỚC 1+2+3: HERO ============ -->
 <section class="hero">
   <div class="container">
+    <figure class="hero-banner" id="heroBanner" style="display:none;">
+      <img src="https://cdn.jsdelivr.net/gh/goldhomebeauty-creator/ba12days-assets@main/combo-hero-mua2tang1.jpg?v=1"
+           alt="Mua 2 kem nám Skin Night Cream tặng 1 kem chống nắng Love The Sun SPF50+ PA+++"
+           onload="heroBannerOk()" onerror="heroBannerFail()">
+    </figure>
     <p class="pre-headline">Dành cho chị đang chăm nám hai gò má, đã dùng hết một hũ kem rồi dừng lại, để rồi da quay về gần như cũ</p>
     <h1 class="headline">Mua 2 kem nám, <em>tặng 1 kem chống nắng</em></h1>
     <p class="sub-headline">Chăm ban đêm, giữ ban ngày. Đủ một liệu trình 3 tháng cho làn da sáng đều, thay vì bỏ dở giữa chừng như những lần trước.</p>
@@ -350,6 +357,17 @@ src="https://www.facebook.com/tr?id=1389341576259188&ev=PageView&noscript=1"/></
     <p class="cta-subtext">🔒 Chính hãng 100% · 💵 Nhận hàng kiểm tra rồi mới trả tiền · 🚚 Giao tận nơi toàn quốc</p>
   </div>
 </section>
+
+<script>
+  // Banner đầu trang: chỉ hiện khi file ảnh đã có trên CDN. Có banner thì ẩn 2 ô ảnh ghép cho đỡ trùng.
+  function heroBannerOk(){
+    var b=document.getElementById('heroBanner'); if(b) b.style.display='block';
+    var c=document.querySelector('.hero-combo'); if(c) c.style.display='none';
+  }
+  function heroBannerFail(){
+    var b=document.getElementById('heroBanner'); if(b) b.style.display='none';
+  }
+</script>
 
 <!-- ============ PHÉP TÍNH 48K (neo giá) ============ -->
 <section style="background:#FFF8E1; padding-top:40px;">
